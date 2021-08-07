@@ -10,7 +10,7 @@ public class Square {
     }
 
     public static double diagonal(double a, double b) {
-        return Value.power((a * a + b * b), 2);
+        return Math.sqrt(a * a + b * b);
     }
 
     public static double cubeVolume(double a, double b, double c) {
