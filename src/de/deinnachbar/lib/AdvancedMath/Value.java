@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Value {
+
+    /**
+     * @param value value to be rounded
+     * @param commas to how many decimal places
+     * @return rounded value
+     */
     public static double round(double value, int commas) {
         double scale = power(10, commas);
         return Math.round(value * scale) / scale;
