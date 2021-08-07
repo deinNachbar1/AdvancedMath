@@ -9,6 +9,9 @@ public class Value {
         return Math.round(value * scale) / scale;
     }
 
+    /**
+     * @return {@code value}<sup>{@code x}</sup>
+     */
     public static double power(double value, int x) {
 
         double back = 1;
@@ -25,6 +28,12 @@ public class Value {
 
         return back;
     }
+
+    /**
+     * @param numbers unsorted list of double values
+     * @param highFirst if true then sorted from high to low numbers instead of from low to high
+     * @return sorted list double values
+     */
 
     public static List<Double> sortNumbers(List<Double> numbers, boolean highFirst) {
 
