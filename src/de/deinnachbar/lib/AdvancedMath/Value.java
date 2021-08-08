@@ -6,7 +6,7 @@ import java.util.List;
 public class Value {
 
     /**
-     * @param value value to be rounded
+     * @param value  value to be rounded
      * @param commas to how many decimal places
      * @return rounded value
      */
@@ -22,12 +22,12 @@ public class Value {
 
         double back = 1;
 
-        if(x > 0) {
-            for(int i = 0; i < x; i++) {
+        if (x > 0) {
+            for (int i = 0; i < x; i++) {
                 back = back * value;
             }
-        }else {
-            for(int i = 0; i < -x; i++) {
+        } else {
+            for (int i = 0; i < -x; i++) {
                 back = back * (1 / value);
             }
         }
@@ -36,11 +36,10 @@ public class Value {
     }
 
     /**
-     * @param numbers unsorted list of double values
+     * @param numbers   unsorted list of double values
      * @param highFirst if true then sorted from high to low numbers instead of from low to high
      * @return sorted list double values
      */
-
     public static List<Double> sortNumbers(List<Double> numbers, boolean highFirst) {
 
         long numSize = numbers.size();
@@ -57,7 +56,7 @@ public class Value {
 
                     boolean highLow;
 
-                    if(highFirst) highLow = number < numberCompare;
+                    if (highFirst) highLow = number < numberCompare;
                     else highLow = number > numberCompare;
 
                     if (highLow) {
@@ -76,5 +75,41 @@ public class Value {
         }
         return back;
 
+    }
+
+    /**
+     * @param decimal a decimal number
+     * @return a binary string
+     */
+    public static String decToBin(long decimal) {
+
+        StringBuilder binary = new StringBuilder();
+
+        while (decimal > 0) {
+            binary.insert(0, decimal % 2);
+            decimal = (long) Math.floor((double)decimal / 2);
+        }
+
+        return binary.toString();
+    }
+
+    /**
+     * @param binary a binary string
+     * @return a decimal number
+     */
+    public static long binToDec(String binary) {
+
+        long decimal = 0;
+        List<Byte> binaryList = new ArrayList<>();
+
+        int counter = binary.length();
+
+        for(int i = 0; i < binary.length(); i++) {
+            binaryList.add((byte)(Character.getNumericValue(binary.charAt(i))));
+            counter--;
+            decimal += binaryList.get(i) * power(2, counter);
+        }
+
+        return decimal;
     }
 }
