@@ -112,4 +112,17 @@ public class Value {
 
         return decimal;
     }
+
+    /**
+     * @param commas decimal places
+     * @return Value.round(pi, commas)
+     */
+    public static double pi(int commas) {
+        double pi = 3.141592653589793;
+        if(commas <= 15) {
+            return round(pi, commas);
+        }else {
+            return pi;
+        }
+    }
 }
